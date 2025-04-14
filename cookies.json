@@ -1,0 +1,32 @@
+{
+  "version": "tough-cookie@5.1.2",
+  "storeType": "MemoryCookieStore",
+  "rejectPublicSuffixes": true,
+  "enableLooseMode": false,
+  "allowSpecialUseDomain": true,
+  "prefixSecurity": "silent",
+  "cookies": [
+    {
+      "key": "ASP.NET_SessionId",
+      "value": "4zsa5cjkax0uy5kxama0prgs",
+      "domain": "sinhvien.hou.edu.vn",
+      "path": "/",
+      "httpOnly": true,
+      "hostOnly": true,
+      "creation": "2025-04-14T16:22:13.913Z",
+      "lastAccessed": "2025-04-14T16:22:13.949Z",
+      "sameSite": "lax"
+    },
+    {
+      "key": "JSESSIONID",
+      "value": "4A7E80061BDE00DD713053384BDA189B",
+      "domain": "cas.hou.edu.vn",
+      "path": "/cas",
+      "secure": true,
+      "httpOnly": true,
+      "hostOnly": true,
+      "creation": "2025-04-14T16:22:13.946Z",
+      "lastAccessed": "2025-04-14T16:22:13.975Z"
+    }
+  ]
+}
