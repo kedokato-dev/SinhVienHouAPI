@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { login } = require('./services/houCasService');
 const { getProfile } = require('./services/sinhvienService');
+const { getInfoStudent } = require('./services/infoStudentService');
 
 const app = express();
 const PORT = 3000;
@@ -19,6 +20,12 @@ app.get('/api/profile', async (req, res) => {
     const result = await getProfile(sessionId);
     res.json(result);
   });
+
+app.get('/api/info-student', async (req, res) => {
+  const { sessionId } = req.query;
+  const result = await getInfoStudent(sessionId);
+  res.json(result);
+});
   
 
 app.listen(PORT, () => {
