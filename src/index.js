@@ -7,6 +7,7 @@ const { getScore } = require('./services/ScoreService');
 const { getTrainingScoreDetails } = require('./services/trainingScoreService');
 const { getWeekSchoolSchedule } = require('./services/weekSchoolScheduleService');
 const { getExamSchedule } = require('./services/examScheduleService');
+const { getListScore } = require('./services/ListScoreService');
 
 const app = express();
 const PORT = 3000;
@@ -52,6 +53,12 @@ app.get('/api/week-school-schedule', async (req, res) => {
 app.get('/api/exam-schedule', async (req, res) => {
   const { sessionId } = req.query;
   const result = await getExamSchedule(sessionId);
+  res.json(result);
+});
+
+app.get('/api/list-score', async (req, res) => {
+  const { sessionId } = req.query;
+  const result = await getListScore(sessionId);
   res.json(result);
 });
 
