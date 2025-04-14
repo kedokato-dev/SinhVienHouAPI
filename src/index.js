@@ -5,6 +5,7 @@ const { getProfile } = require('./services/sinhvienService');
 const { getInfoStudent } = require('./services/infoStudentService');
 const { getScore } = require('./services/ScoreService');
 const { getTrainingScoreDetails } = require('./services/trainingScoreService');
+const { getWeekSchoolSchedule } = require('./services/weekSchoolScheduleService');
 
 const app = express();
 const PORT = 3000;
@@ -40,7 +41,12 @@ app.get('/api/training-score', async (req, res) => {
   const result = await getTrainingScoreDetails(sessionId);
   res.json(result);
 });
-  
+
+app.get('/api/week-school-schedule', async (req, res) => {
+  const { sessionId, weekValue } = req.query;
+  const result = await getWeekSchoolSchedule(sessionId, weekValue);
+  res.json(result);
+});
 
 app.listen(PORT, () => {
   console.log(`✅ Server chạy tại http://localhost:${PORT}`);
