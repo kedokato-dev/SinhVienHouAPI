@@ -1,17 +1,17 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { wrapper } = require('axios-cookiejar-support');
+const { wrapper } = require('axios-cookiejar-support'); // Import wrapper
 const { getSession } = require('../sessionStore');
 
-function createClient(username) {
-  const jar = getSession(username);
+function createClientBySession(sessionId) {
+  const jar = getSession(sessionId);
   if (!jar) return null;
-  return wrapper(axios.create({ jar, withCredentials: true }));
+  return wrapper(axios.create({ jar, withCredentials: true })); // Use wrapper here
 }
 
-async function getProfile(username) {
-  const client = createClient(username);
-  if (!client) return { success: false, message: 'Chưa đăng nhập' };
+async function getProfile(sessionId) {
+  const client = createClientBySession(sessionId);
+  if (!client) return { success: false, message: 'Session không tồn tại hoặc đã hết hạn' };
 
   try {
     const res = await client.get('https://sinhvien.hou.edu.vn/');
@@ -23,8 +23,5 @@ async function getProfile(username) {
     return { success: false, message: err.message };
   }
 }
-
-// Các API mở rộng sau này như getDiem, getThoiKhoaBieu...
-// chỉ cần dùng lại createClient và gọi đúng URL
 
 module.exports = { getProfile };

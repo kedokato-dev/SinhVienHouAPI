@@ -15,10 +15,11 @@ app.post('/api/login', async (req, res) => {
 });
 
 app.get('/api/profile', async (req, res) => {
-  const { username } = req.query;
-  const result = await getProfile(username);
-  res.json(result);
-});
+    const { sessionId } = req.query;
+    const result = await getProfile(sessionId);
+    res.json(result);
+  });
+  
 
 app.listen(PORT, () => {
   console.log(`✅ Server chạy tại http://localhost:${PORT}`);

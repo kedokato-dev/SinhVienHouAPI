@@ -38,8 +38,10 @@ async function login(username, password) {
 
     // ✅ Lưu session cookie
     createSession(jar);
-
-    return { success: true, message: 'Đăng nhập thành công' };
+    const sessionId = createSession(jar);
+    return { success: true, sessionId };
+    // return { success: true, message: 'Đăng nhập thành công' };
+    
   } catch (err) {
     return { success: false, message: err.message };
   }
