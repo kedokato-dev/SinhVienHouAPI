@@ -17,7 +17,7 @@ async function getWeekSchoolSchedule(sessionId, weekValue) {
 
     try {
         // Gửi yêu cầu GET để lấy trang lịch học
-        const response = await client.get('https://sinhvien.hou.edu.vn/wfrmLichHocSinhVienTinChi.aspx'); // Thay bằng URL thực tế
+        const response = await client.get('https://sinhvien.hou.edu.vn/wfrmLichHocSinhVienTinChi.aspx');
         const $ = cheerio.load(response.data);
 
         // Chọn tuần học (nếu cần)
@@ -30,6 +30,8 @@ async function getWeekSchoolSchedule(sessionId, weekValue) {
             cmbTuan_thu: weekValue, // Giá trị tuần học
         };
 
+        // console.log('Form Data:', formData);
+
         // Gửi yêu cầu POST để cập nhật tuần học
         await client.post('https://sinhvien.hou.edu.vn/wfrmLichHocSinhVienTinChi.aspx', new URLSearchParams(formData).toString(), {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -39,13 +41,19 @@ async function getWeekSchoolSchedule(sessionId, weekValue) {
         const updatedResponse = await client.get('https://sinhvien.hou.edu.vn/wfrmLichHocSinhVienTinChi.aspx');
         const updated$ = cheerio.load(updatedResponse.data);
 
+        // Trích xuất tiêu đề bảng (thứ mấy)
+        const headers = [];
+        updated$('#grdViewLopDangKy tr.HeaderStyle th').each((index, element) => {
+            headers.push(updated$(element).text().trim());
+        });
+
         // Trích xuất dữ liệu lịch học từ bảng
         const schedule = [];
         updated$('#grdViewLopDangKy tr').each((rowIndex, row) => {
             if (rowIndex === 0) return; // Bỏ qua tiêu đề bảng
-            const rowData = [];
+            const rowData = {};
             updated$(row).find('td').each((colIndex, col) => {
-                rowData.push(updated$(col).text().trim());
+                rowData[headers[colIndex] || `Column ${colIndex + 1}`] = updated$(col).text().trim();
             });
             schedule.push(rowData);
         });
