@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
+// Import các service
 const { login } = require('./services/houCasService');
 const { getProfile } = require('./services/sinhvienService');
 const { getInfoStudent } = require('./services/infoStudentService');
@@ -11,10 +13,9 @@ const { getListScore } = require('./services/listScoreService');
 const { getDetailScore } = require('./services/detailScoreService');
 
 const app = express();
-const PORT = 3000;
-
 app.use(bodyParser.json());
 
+// Routes
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
   const result = await login(username, password);
@@ -69,14 +70,9 @@ app.get('/api/detail-score', async (req, res) => {
   res.json(result);
 });
 
-
 app.get('/', (req, res) => {
-  res.send('Server đang chạy, QuanDev đang ngủ!');
-}
-);
+  res.send('Server đang chạy, QuanDev đang ngủ 😴!');
+});
 
-// app.listen(PORT, () => {
-//   console.log(`✅ Server chạy tại http://localhost:${PORT}`);
-// });
-
-module.exports = app; 
+// ✅ Xuất app ra ngoài để server.js dùng
+module.exports = app;
