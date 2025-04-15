@@ -22,10 +22,10 @@ app.post('/api/login', async (req, res) => {
 });
 
 app.get('/api/profile', async (req, res) => {
-    const { sessionId } = req.query;
-    const result = await getProfile(sessionId);
-    res.json(result);
-  });
+  const { sessionId } = req.query;
+  const result = await getProfile(sessionId);
+  res.json(result);
+});
 
 app.get('/api/info-student', async (req, res) => {
   const { sessionId } = req.query;
@@ -68,6 +68,12 @@ app.get('/api/detail-score', async (req, res) => {
   const result = await getDetailScore(sessionId, subjectId);
   res.json(result);
 });
+
+
+app.get('/', (req, res) => {
+  res.send('Server đang chạy, QuanDev đang ngủ!');
+}
+);
 
 // app.listen(PORT, () => {
 //   console.log(`✅ Server chạy tại http://localhost:${PORT}`);
