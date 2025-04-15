@@ -8,6 +8,7 @@ const { getTrainingScoreDetails } = require('./services/trainingScoreService');
 const { getWeekSchoolSchedule } = require('./services/weekSchoolScheduleService');
 const { getExamSchedule } = require('./services/examScheduleService');
 const { getListScore } = require('./services/ListScoreService');
+const { getDetailScore } = require('./services/detailScoreService');
 
 const app = express();
 const PORT = 3000;
@@ -62,6 +63,14 @@ app.get('/api/list-score', async (req, res) => {
   res.json(result);
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server chạy tại http://localhost:${PORT}`);
+app.get('/api/detail-score', async (req, res) => {
+  const { sessionId, subjectId } = req.query;
+  const result = await getDetailScore(sessionId, subjectId);
+  res.json(result);
 });
+
+// app.listen(PORT, () => {
+//   console.log(`✅ Server chạy tại http://localhost:${PORT}`);
+// });
+
+module.exports = app; 
