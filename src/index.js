@@ -3,11 +3,11 @@ const bodyParser = require('body-parser');
 const { login } = require('./services/houCasService');
 const { getProfile } = require('./services/sinhvienService');
 const { getInfoStudent } = require('./services/infoStudentService');
-const { getScore } = require('./services/ScoreService');
+const { getScore } = require('./services/scoreService');
 const { getTrainingScoreDetails } = require('./services/trainingScoreService');
 const { getWeekSchoolSchedule } = require('./services/weekSchoolScheduleService');
 const { getExamSchedule } = require('./services/examScheduleService');
-const { getListScore } = require('./services/ListScoreService');
+const { getListScore } = require('./services/listScoreService');
 const { getDetailScore } = require('./services/detailScoreService');
 
 const app = express();
