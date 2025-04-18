@@ -16,38 +16,58 @@ async function getExamSchedule(sessionId) {
     try {
         const res = await client.get('https://sinhvien.hou.edu.vn/ThongTinLichThi.aspx');
         const $ = cheerio.load(res.data);
-        
+
         const examSchedules = [];
         let currentSemester = '';
-        
+
         // Lấy dữ liệu từ bảng lịch thi
         $('#grd tbody tr').each((index, element) => {
             // Bỏ qua hàng tiêu đề
-            if (index === 0) return;
-            
+            if ($(element).hasClass('HeaderStyle')) return;
+
             const $row = $(element);
+            const cells = $row.find('td');
             
-            // Kiểm tra nếu có thuộc tính rowspan ở ô đầu tiên (học kỳ, năm học)
-            const semesterCell = $row.find('td:first-child');
-            if (semesterCell.attr('rowspan')) {
-                currentSemester = semesterCell.text().trim();
+            // Kiểm tra xem hàng này có chứa ô semester không
+            const firstCell = cells.first();
+            const hasSemesterCell = firstCell.attr('rowspan') !== undefined;
+            
+            if (hasSemesterCell) {
+                // Lưu học kỳ mới nếu có
+                currentSemester = firstCell.text().trim();
+                
+                // Khi có ô học kỳ (có rowspan), các ô tiếp theo sẽ là các thông tin khác
+                const examSchedule = {
+                    semester: currentSemester,
+                    subject: $(cells[1]).text().trim(),
+                    testTime: $(cells[2]).text().trim(),
+                    testPhase: $(cells[3]).text().trim(),
+                    date: $(cells[4]).text().trim(),
+                    session: $(cells[5]).text().trim(),
+                    time: $(cells[6]).text().trim(),
+                    room: $(cells[7]).text().trim(),
+                    studentNumber: $(cells[8]).text().trim(),
+                    examType: $(cells[9]).text().trim(),
+                    note: $(cells[10]).text().trim() || ""
+                };
+                examSchedules.push(examSchedule);
+            } else {
+                // Khi không có ô học kỳ (do rowspan từ hàng trước), các ô bắt đầu từ 0
+                const examSchedule = {
+                    semester: currentSemester,
+                    subject: $(cells[0]).text().trim(),
+                    testTime: $(cells[1]).text().trim(),
+                    testPhase: $(cells[2]).text().trim(), 
+                    date: $(cells[3]).text().trim(),
+                    session: $(cells[4]).text().trim(),
+                    time: $(cells[5]).text().trim(),
+                    room: $(cells[6]).text().trim(),
+                    studentNumber: $(cells[7]).text().trim(),
+                    examType: $(cells[8]).text().trim(),
+                    note: $(cells[9]).text().trim() || ""
+                };
+                examSchedules.push(examSchedule);
             }
-            
-            const examSchedule = {
-                semester: currentSemester,
-                subject: $row.find('td:nth-child(2)').text().trim(),
-                testTime: $row.find('td:nth-child(3)').text().trim(),
-                testPhase: $row.find('td:nth-child(4)').text().trim(),
-                date: $row.find('td:nth-child(5)').text().trim(),
-                session: $row.find('td:nth-child(6)').text().trim(),
-                time: $row.find('td:nth-child(7)').text().trim(),
-                room: $row.find('td:nth-child(8)').text().trim(),
-                studentNumber: $row.find('td:nth-child(9)').text().trim(),
-                examType: $row.find('td:nth-child(10)').text().trim(),
-                note: $row.find('td:nth-child(11)').text().trim()
-            };
-            
-            examSchedules.push(examSchedule);
         });
 
         return { 

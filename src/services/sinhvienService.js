@@ -16,9 +16,9 @@ async function getProfile(sessionId) {
   try {
     const res = await client.get('https://sinhvien.hou.edu.vn/');
     const $ = cheerio.load(res.data);
-   
+    
     const name = $('#HeaderSV1_lblHo_ten').text().trim();
-    const studentId = $('#HeaderSV_lblMa_sv').text().trim();
+    const studentId = $('#HeaderSV1_lblMa_sv').text().trim();
 
     return {
       success: true,
