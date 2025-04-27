@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHOU - Trợ lý lịch học cho sinh viên Đại học Mở Hà Nội</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/myhou.png" alt="MyHOU Logo" class="logo-image">
+                <span>MyHOU</span>
+            </div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#features">Tính năng</a></li>
+                <li><a href="#screenshots">Giao diện</a></li>
+                <li><a href="#download">Tải xuống</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>MyHOU - Trợ lý lịch học thông minh</h1>
+                <p>Ứng dụng quản lý lịch học toàn diện dành riêng cho sinh viên Đại học Mở Hà Nội. Theo dõi lịch học, lịch thi và nhận thông báo quan trọng mọi lúc mọi nơi.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn primary-btn"><i class="fas fa-download"></i> Tải ứng dụng</a>
+                    <a href="#features" class="btn secondary-btn"><i class="fas fa-info-circle"></i> Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/mockup.png" alt="MyHOU App Mockup">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Tính năng nổi bật</h2>
+            <p>Khám phá những tính năng giúp MyHOU trở thành người bạn đồng hành lý tưởng trong suốt quá trình học tập</p>
+        </div>
+        <div class="feature-container">
+            <div class="feature">
+                <div class="feature-icon"><i class="far fa-calendar-alt"></i></div>
+                <h3>Lịch học thông minh</h3>
+                <p>Xem lịch học, lịch thi theo tuần, tháng. Tự động đồng bộ với hệ thống đào tạo của trường Đại học Mở Hà Nội.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="far fa-bell"></i></div>
+                <h3>Thông báo linh hoạt</h3>
+                <p>Nhận thông báo về lịch học, deadline, lịch thi và các sự kiện quan trọng. Không bỏ lỡ bất kỳ thông tin nào.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="far fa-edit"></i></div>
+                <h3>Quản lý học tập</h3>
+                <p>Theo dõi điểm số, tín chỉ, ghi chú bài học và tạo nhắc nhở cho các nhiệm vụ học tập. Tối ưu hóa kết quả học tập.</p>
+            </div>
+            <!-- <div class="feature">
+                <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3></h3>
+                <p>Dễ dàng tìm đường đến các phòng học, thư viện, và các địa điểm quan trọng trong khuôn viên trường.</p>
+            </div> -->
+        </div>
+    </section>
+
+    <section id="screenshots" class="screenshots">
+        <div class="section-header">
+            <h2>Giao diện ứng dụng</h2>
+            <p>Trải nghiệm giao diện trực quan, thân thiện với người dùng</p>
+        </div>
+        <div class="screenshot-slider">
+            <div class="screenshot">
+                <img src="images/home.png" alt="Màn hình home">
+                <p>Trang chủ với nhiều tiện ích đi kèm</p>
+            </div>
+            <div class="screenshot">
+                <img src="images/schesule.png" alt="Màn hình xem lịch học">
+                <p>Xem lịch học theo tuần, tháng</p>
+            </div>
+            <div class="screenshot">
+                <img src="images/score.png" alt="Màn hình kết quả học tập">
+                <p>Theo dõi kết quả học tập theo học kỳ</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="section-header">
+            <h2>Sinh viên nói gì về MyHOU</h2>
+        </div>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <div class="quote"><i class="fas fa-quote-left"></i></div>
+                <p>Ứng dụng giúp mình không bao giờ bỏ lỡ lịch học và deadline nữa. Giao diện dễ sử dụng và thông báo rất kịp thời!</p>
+                <div class="testimonial-author">
+                    <img src="images/student.png" alt="Sinh viên">
+                    <div>
+                        <h4>Trần Anh Quân</h4>
+                        <p>Sinh viên khoa CNTT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="quote"><i class="fas fa-quote-left"></i></div>
+                <p>MyHOU đã trở thành công cụ không thể thiếu trong quá trình học của mình. Cảm ơn đội ngũ phát triển!</p>
+                <div class="testimonial-author">
+                    <img src="images/student.png" alt="Sinh viên">
+                    <div>
+                        <h4>Nguyễn Huyền Trang</h4>
+                        <p>Sinh viên khoa Kinh tế</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="section-header">
+            <h2>Tải xuống ngay</h2>
+            <p>MyHOU hiện có sẵn trên Android. Tải xuống miễn phí ngay hôm nay!</p>
+        </div>
+        <div class="download-container">
+            <div class="qr-code">
+                <img src="images/qr-code.png" alt="QR Code tải ứng dụng">
+                <p>Quét mã QR để tải ứng dụng</p>
+            </div>
+         
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>Về chúng tôi</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/image.png" alt="Đội ngũ phát triển">
+            </div>
+            <div class="about-text">
+                <p>MyHOU được phát triển bởi Trần Anh Quân sinh viên K22 khoa CNTT với mục tiêu giúp việc quản lý lịch học trở nên dễ dàng và hiệu quả hơn.</p>
+                <p>Tôi cam kết xây dựng một ứng dụng hữu ích, thân thiện với người dùng và liên tục cập nhật để đáp ứng nhu cầu ngày càng cao của sinh viên trong thời đại số.</p>
+                <p>Ứng dụng được xây dựng dựa trên phản hồi từ hơn 500 sinh viên và được cải tiến liên tục.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Liên hệ</h2>
+            <p>Có câu hỏi hoặc đề xuất cải tiến? Hãy liên hệ với đội phát triển MyHOU.</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Họ và tên</label>
+                        <input type="text" id="name" placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Nhập email của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nội dung</label>
+                        <textarea id="message" placeholder="Nội dung tin nhắn"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Gửi tin nhắn</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>thocodeanhquan@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Trường Đại học Mở Hà Nội, B101 Nguyễn Hiền, Hai Bà Trưng, Hà Nội</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/kedokat0" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/kedokato-dev" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- <img src="images/myhou.png" height="120px" width="120px" alt="MyHOU Logo"> -->
+                <span>MyHOU</span>
+            </div>
+            <div class="footer-links">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="#features">Tính năng</a></li>
+                    <li><a href="#download">Tải xuống</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Liên kết khác</h4>
+                <ul>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="http://hou.edu.vn" target="_blank">Website trường ĐH Mở HN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MyHOU - Phát triển bởi Trần Anh Quân</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

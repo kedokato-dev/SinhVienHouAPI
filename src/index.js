@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path'); // Import path module
+
+// Cấu hình phục vụ file tĩnh
 
 // Import các service
 const { login } = require('./services/houCasService');
@@ -14,6 +17,7 @@ const { getDetailScore } = require('./services/detailScoreService');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.post('/api/login', async (req, res) => {
@@ -71,7 +75,7 @@ app.get('/api/detail-score', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Server đang chạy, QuanDev đang ngủ 😴!');
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // ✅ Xuất app ra ngoài để server.js dùng
