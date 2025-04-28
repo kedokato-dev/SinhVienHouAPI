@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /private/
+Sitemap: https://sinhvienhouapi.onrender.com/sitemap.xml
