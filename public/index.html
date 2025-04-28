@@ -13,11 +13,28 @@
     <meta property="og:image" content="https://sinhvienhouapi.onrender.com/images/myhou.png">
     <meta property="og:url" content="https://sinhvienhouapi.onrender.com/">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
     <link rel="icon" href="images/myhou.png" type="image/png">
     <link rel="apple-touch-icon" href="images/myhou.png" type="image/png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
         {
@@ -79,7 +96,6 @@
                                 "name": "Tải xuống",
                                 "item": "https://sinhvienhouapi.onrender.com/#download"
                             },
-                            
                             {
                                 "@type": "ListItem",
                                 "position": 5,
@@ -97,237 +113,709 @@
                 }
             ]
         }
-        </script>
+    </script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="images/myhou.png" alt="MyHOU Logo" class="logo-image">
-                <span>MyHOU</span>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/myhou.png" alt="MyHOU Logo" height="40" class="me-2">
+                <span class="fw-bold">MyHOU</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Tính năng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#screenshots">Giao diện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#download">Tải xuống</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên hệ</a>
+                    </li>
+                </ul>
+                <a href="#download" class="btn btn-gradient ms-lg-3 download-btn">Tải ứng dụng</a>
             </div>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#features">Tính năng</a></li>
-                <li><a href="#screenshots">Giao diện</a></li>
-                <li><a href="#download">Tải xuống</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav>
-    </header>
+            
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>MyHOU - Trợ lý lịch học thông minh</h1>
-                <p>Ứng dụng quản lý lịch học toàn diện dành riêng cho sinh viên Đại học Mở Hà Nội. Theo dõi lịch học,
-                    lịch thi và nhận thông báo quan trọng mọi lúc mọi nơi.</p>
-                <div class="hero-buttons">
-                    <a href="#download" class="btn primary-btn"><i class="fas fa-download"></i> Tải ứng dụng</a>
-                    <a href="#features" class="btn secondary-btn"><i class="fas fa-info-circle"></i> Tìm hiểu thêm</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/mockup.png" alt="Mockup ứng dụng MyHOU - Quản lý lịch học cho sinh viên Đại học Mở Hà Nội">
-            </div>
-        </div>
-    </section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <h1 class="fw-bold mb-4">MyHOU - <span class="text-gradient">Trợ lý lịch học</span> thông minh</h1>
+                    <p class="lead mb-4">Ứng dụng quản lý lịch học toàn diện dành riêng cho sinh viên Đại học Mở Hà Nội. Theo dõi lịch học, lịch thi và nhận thông báo quan trọng mọi lúc mọi nơi.</p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-gradient btn-lg">
+                            <i class="fas fa-download me-2"></i>Tải ứng dụng
+                        </a>
+                        <a href="#features" class="btn btn-outline-primary btn-lg ms-3">
+                            <i class="fas fa-info-circle me-2"></i>Tìm hiểu thêm
+                        </a>
+                    </div>
 
-    <section id="features" class="features">
-        <div class="section-header">
-            <h2>Tính năng nổi bật</h2>
-            <p>Khám phá những tính năng giúp MyHOU trở thành người bạn đồng hành lý tưởng trong suốt quá trình học tập
-            </p>
-        </div>
-        <div class="feature-container">
-            <div class="feature">
-                <div class="feature-icon"><i class="far fa-calendar-alt"></i></div>
-                <h3>Lịch học thông minh</h3>
-                <p>Xem lịch học, lịch thi theo tuần, tháng. Tự động đồng bộ với hệ thống đào tạo của trường Đại học Mở
-                    Hà Nội.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="far fa-bell"></i></div>
-                <h3>Thông báo linh hoạt</h3>
-                <p>Nhận thông báo về lịch học, deadline, lịch thi và các sự kiện quan trọng. Không bỏ lỡ bất kỳ thông
-                    tin nào.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="far fa-edit"></i></div>
-                <h3>Quản lý học tập</h3>
-                <p>Theo dõi điểm số, tín chỉ, ghi chú bài học và tạo nhắc nhở cho các nhiệm vụ học tập. Tối ưu hóa kết
-                    quả học tập.</p>
-            </div>
-            <!-- <div class="feature">
-                <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <h3></h3>
-                <p>Dễ dàng tìm đường đến các phòng học, thư viện, và các địa điểm quan trọng trong khuôn viên trường.</p>
-            </div> -->
-        </div>
-    </section>
-
-    <section id="screenshots" class="screenshots">
-        <div class="section-header">
-            <h2>Giao diện ứng dụng</h2>
-            <p>Trải nghiệm giao diện trực quan, thân thiện với người dùng</p>
-        </div>
-        <div class="screenshot-slider">
-            <div class="screenshot">
-                <img src="images/home.png" alt="Màn hình home">
-                <p>Trang chủ với nhiều tiện ích đi kèm</p>
-            </div>
-            <div class="screenshot">
-                <img src="images/schesule.png" alt="Màn hình xem lịch học">
-                <p>Xem lịch học theo tuần, tháng</p>
-            </div>
-            <div class="screenshot">
-                <img src="images/score.png" alt="Màn hình kết quả học tập">
-                <p>Theo dõi kết quả học tập theo học kỳ</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="section-header">
-            <h2>Sinh viên nói gì về MyHOU</h2>
-        </div>
-        <div class="testimonial-container">
-            <div class="testimonial">
-                <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>Ứng dụng giúp mình không bao giờ bỏ lỡ lịch học và deadline nữa. Giao diện dễ sử dụng và thông báo
-                    rất kịp thời!</p>
-                <div class="testimonial-author">
-                    <img src="images/student.png" alt="Sinh viên">
-                    <div>
-                        <h4>Trần Anh Quân</h4>
-                        <p>Sinh viên khoa CNTT</p>
+                    <!-- Floating badges -->
+                    <div class="floating-badges">
+                        <div class="badge-item" data-aos="fade-up" data-aos-delay="300">
+                            <span class="badge bg-primary">
+                                <i class="fas fa-check-circle me-1"></i> Miễn phí hoàn toàn
+                            </span>
+                        </div>
+                        <div class="badge-item" data-aos="fade-up" data-aos-delay="400">
+                            <span class="badge bg-primary">
+                                <i class="fas fa-sync me-1"></i> Cập nhật liên tục
+                            </span>
+                        </div>
+                        <div class="badge-item" data-aos="fade-up" data-aos-delay="500">
+                            <span class="badge bg-primary">
+                                <i class="fas fa-shield-alt me-1"></i> Bảo mật cao
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="testimonial">
-                <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>MyHOU đã trở thành công cụ không thể thiếu trong quá trình học của mình. Cảm ơn đội ngũ phát triển!
-                </p>
-                <div class="testimonial-author">
-                    <img src="images/student.png" alt="Sinh viên">
-                    <div>
-                        <h4>Nguyễn Huyền Trang</h4>
-                        <p>Sinh viên khoa Kinh tế</p>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="hero-image">
+                        <img src="images/mockup.png" alt="Mockup ứng dụng MyHOU" class="img-fluid">
+                        <div class="blob-shape"></div>
+                        <div class="floating-element element-1">
+                            <i class="far fa-bell"></i>
+                        </div>
+                        <div class="floating-element element-2">
+                            <i class="far fa-calendar-check"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="download" class="download">
-        <div class="section-header">
-            <h2>Tải xuống ngay</h2>
-            <p>MyHOU hiện có sẵn trên Android. Tải xuống miễn phí ngay hôm nay!</p>
-        </div>
-        <div class="download-container">
-            <div class="qr-code">
-                <img src="images/qr-code.png" alt="QR Code tải ứng dụng">
-                <p>Quét mã QR để tải ứng dụng</p>
-                <a href="https://github.com/kedokato-dev/HouCheck/releases" target="_blank" rel="noopener noreferrer">Hoặc click vào đây để tải ứng dụng</a>
-            </div>
-           
-
+        <div class="hero-shape-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,122.7C672,107,768,117,864,144C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="section-header">
-            <h2>Về chúng tôi</h2>
-        </div>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="images/image.png" alt="Đội ngũ phát triển">
+    <!-- Features Section -->
+    <section id="features" class="features py-6">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Khám phá</span>
+                <h2 class="section-title">Tính năng <span class="text-gradient">nổi bật</span></h2>
+                <p class="section-description">Khám phá những tính năng giúp MyHOU trở thành người bạn đồng hành lý tưởng trong suốt quá trình học tập</p>
             </div>
-            <div class="about-text">
-                <p>MyHOU được phát triển bởi Trần Anh Quân sinh viên K22 khoa CNTT với mục tiêu giúp việc quản lý lịch
-                    học trở nên dễ dàng và hiệu quả hơn.</p>
-                <p>Tôi cam kết xây dựng một ứng dụng hữu ích, thân thiện với người dùng và liên tục cập nhật để đáp ứng
-                    nhu cầu ngày càng cao của sinh viên trong thời đại số.</p>
-                <p>Ứng dụng được xây dựng dựa trên phản hồi từ hơn 500 sinh viên và được cải tiến liên tục.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="contact" class="contact">
-        <div class="section-header">
-            <h2>Liên hệ</h2>
-            <p>Có câu hỏi hoặc đề xuất cải tiến? Hãy liên hệ với đội phát triển MyHOU.</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Họ và tên</label>
-                        <input type="text" id="name" placeholder="Nhập họ và tên của bạn">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="icon-container">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        <h3>Lịch học thông minh</h3>
+                        <p>Xem lịch học, lịch thi theo tuần, tháng. Tự động đồng bộ với hệ thống đào tạo của trường Đại học Mở Hà Nội.</p>
+                        <a href="#screenshots" class="learn-more">
+                            Xem thêm <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Nhập email của bạn">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Nội dung</label>
-                        <textarea id="message" placeholder="Nội dung tin nhắn"></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn">Gửi tin nhắn</button>
-                </form>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>thocodeanhquan@gmail.com</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>Trường Đại học Mở Hà Nội, B101 Nguyễn Hiền, Hai Bà Trưng, Hà Nội</p>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="icon-container">
+                            <i class="far fa-bell"></i>
+                        </div>
+                        <h3>Thông báo linh hoạt</h3>
+                        <p>Nhận thông báo về lịch học, deadline, lịch thi và các sự kiện quan trọng. Không bỏ lỡ bất kỳ thông tin nào.</p>
+                        <a href="#screenshots" class="learn-more">
+                            Xem thêm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/kedokat0" target="_blank" rel="noopener noreferrer"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://github.com/kedokato-dev" target="_blank"><i class="fab fa-github"></i></a>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="icon-container">
+                            <i class="far fa-edit"></i>
+                        </div>
+                        <h3>Quản lý học tập</h3>
+                        <p>Theo dõi điểm số, tín chỉ, ghi chú bài học và tạo nhắc nhở cho các nhiệm vụ học tập. Tối ưu hóa kết quả học tập.</p>
+                        <a href="#screenshots" class="learn-more">
+                            Xem thêm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+                <a href="#download" class="btn btn-gradient">
+                    <i class="fas fa-download me-2"></i>Tải xuống ngay
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <!-- <img src="images/myhou.png" height="120px" width="120px" alt="MyHOU Logo"> -->
-                <span>MyHOU</span>
-            </div>
-            <div class="footer-links">
-                <h4>Liên kết nhanh</h4>
-                <ul>
-                    <li><a href="#features">Tính năng</a></li>
-                    <li><a href="#download">Tải xuống</a></li>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Liên kết khác</h4>
-                <ul>
-                    <li><a href="#">Chính sách bảo mật</a></li>
-                    <li><a href="#">Điều khoản sử dụng</a></li>
-                    <li><a href="http://hou.edu.vn" target="_blank">Website trường ĐH Mở HN</a></li>
-                </ul>
+    <!-- Counter Section -->
+    <section class="counter-section py-6">
+        <div class="container">
+            <div class="counter-wrapper">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h2><span class="counter" data-target="500">0</span><span class="plus">+</span></h2>
+                            <p>Người dùng</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h2><span class="counter" data-target="10">0</span><span class="plus">+</span></h2>
+                            <p>Tính năng</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h2><span class="counter" data-target="99">0</span><span class="percent">%</span></h2>
+                            <p>Độ chính xác</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h2><span class="counter" data-target="5">0</span><span class="plus">+</span></h2>
+                            <p>Khoa hỗ trợ</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 MyHOU - Phát triển bởi Trần Anh Quân</p>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots py-6">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Khám phá</span>
+                <h2 class="section-title">Giao diện <span class="text-gradient">ứng dụng</span></h2>
+                <p class="section-description">Trải nghiệm giao diện trực quan, thân thiện với người dùng</p>
+            </div>
+
+            <div class="swiper screenshots-swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="screenshot-card">
+                            <div class="phone-frame">
+                                <img src="images/home.png" alt="Màn hình home" class="img-fluid">
+                            </div>
+                            <div class="screenshot-info">
+                                <h4>Trang chủ với nhiều tiện ích đi kèm</h4>
+                                <p>Giao diện minimalist giúp sinh viên dễ dàng theo dõi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="screenshot-card">
+                            <div class="phone-frame">
+                                <img src="images/schesule.png" alt="Màn hình xem lịch học" class="img-fluid">
+                            </div>
+                            <div class="screenshot-info">
+                                <h4>Xem lịch học theo tuần, tháng</h4>
+                                <p>Tự động cập nhật và nhắc nhở lịch học hàng ngày</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="screenshot-card">
+                            <div class="phone-frame">
+                                <img src="images/score.png" alt="Màn hình kết quả học tập" class="img-fluid">
+                            </div>
+                            <div class="screenshot-info">
+                                <h4>Theo dõi kết quả học tập theo học kỳ</h4>
+                                <p>Hiển thị chi tiết điểm số và tín chỉ tích lũy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials py-6">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Đánh giá</span>
+                <h2 class="section-title">Sinh viên nói gì <span class="text-gradient">về MyHOU</span></h2>
+            </div>
+
+            <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>Ứng dụng giúp mình không bao giờ bỏ lỡ lịch học và deadline nữa. Giao diện dễ sử dụng và thông báo rất kịp thời!</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-user">
+                                <img src="images/student.png" alt="Sinh viên" class="user-avatar">
+                                <div class="user-info">
+                                    <h5>Trần Anh Quân</h5>
+                                    <p>Sinh viên khoa CNTT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>MyHOU đã trở thành công cụ không thể thiếu trong quá trình học của mình. Cảm ơn đội ngũ phát triển!</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-user">
+                                <img src="images/student.png" alt="Sinh viên" class="user-avatar">
+                                <div class="user-info">
+                                    <h5>Nguyễn Huyền Trang</h5>
+                                    <p>Sinh viên khoa Kinh tế</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>Ứng dụng tuyệt vời! Giúp mình quản lý thời gian học tập hiệu quả hơn rất nhiều.</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-user">
+                                <img src="images/student.png" alt="Sinh viên" class="user-avatar">
+                                <div class="user-info">
+                                    <h5>Phạm Minh Tuấn</h5>
+                                    <p>Sinh viên khoa Ngoại ngữ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download py-6">
+        <div class="container">
+            <div class="download-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                        <span class="section-subtitle">Bắt đầu ngay</span>
+                        <h2 class="section-title mb-4">Tải xuống <span class="text-gradient">MyHOU</span> miễn phí</h2>
+                        <p class="lead mb-4">MyHOU hiện có sẵn trên Android. Tải xuống miễn phí ngay hôm nay!</p>
+                        
+                        <div class="download-badges mb-4">
+                            <a href="https://github.com/kedokato-dev/HouCheck/releases" class="download-badge android" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-android"></i>
+                                <div class="badge-text">
+                                    <span>TẢI XUỐNG TRÊN</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </a>
+                            <a href="#" class="download-badge ios disabled">
+                                <i class="fab fa-apple"></i>
+                                <div class="badge-text">
+                                    <span>SẮP CÓ TRÊN</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="app-features">
+                            <div class="app-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Hoàn toàn miễn phí</span>
+                            </div>
+                            <div class="app-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Không cần đăng ký tài khoản</span>
+                            </div>
+                            <div class="app-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cập nhật thường xuyên</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+                        <div class="qr-container">
+                            <div class="qr-card">
+                                <img src="images/qr-code.png" alt="QR Code tải ứng dụng" class="qr-image">
+                                <p>Quét mã QR để tải ứng dụng</p>
+                                <div class="scan-animation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about py-6">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <div class="about-content">
+                        <span class="section-subtitle">Về dự án</span>
+                        <h2 class="section-title mb-4">Câu chuyện về <span class="text-gradient">MyHOU</span></h2>
+                        <p class="mb-3">MyHOU được phát triển bởi Trần Anh Quân sinh viên K22 khoa CNTT với mục tiêu giúp việc quản lý lịch học trở nên dễ dàng và hiệu quả hơn.</p>
+                        <p class="mb-3">Tôi cam kết xây dựng một ứng dụng hữu ích, thân thiện với người dùng và liên tục cập nhật để đáp ứng nhu cầu ngày càng cao của sinh viên trong thời đại số.</p>
+                        <p class="mb-4">Ứng dụng được xây dựng dựa trên phản hồi từ hơn 500 sinh viên và được cải tiến liên tục.</p>
+                        
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/kedokat0" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://github.com/kedokato-dev" class="social-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1 mt-5 mt-lg-0" data-aos="fade-right" data-aos-delay="200">
+                    <div class="about-image">
+                        <img src="images/image.png" alt="Đội ngũ phát triển" class="img-fluid">
+                        <div class="experience-badge">
+                            <span class="number">1</span>
+                            <span class="text">Năm phát triển</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact py-6">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Liên lạc</span>
+                <h2 class="section-title">Gửi <span class="text-gradient">phản hồi</span> cho chúng tôi</h2>
+                <p class="section-description">Có câu hỏi hoặc đề xuất cải tiến? Hãy liên hệ với đội phát triển MyHOU.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="contact-form-wrapper">
+                        <h3>Gửi tin nhắn cho chúng tôi</h3>
+                        <form id="contactForm">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="name" placeholder="Họ và tên" required>
+                                <label for="name">Họ và tên</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" rows="4" placeholder="Nội dung tin nhắn" style="height: 150px" required></textarea>
+                                <label for="message">Nội dung tin nhắn</label>
+                            </div>
+                            <button type="submit" class="btn btn-gradient w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Gửi tin nhắn
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="contact-info-wrapper">
+                        <h3>Thông tin liên hệ</h3>
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Email</h5>
+                                <p>thocodeanhquan@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Địa chỉ</h5>
+                                <p>Trường Đại học Mở Hà Nội, B101 Nguyễn Hiền, Hai Bà Trưng, Hà Nội</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Giờ hỗ trợ</h5>
+                                <p>Thứ Hai - Thứ Sáu: 9:00 - 17:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Điện thoại</h5>
+                                <p>+84 123 456 789</p>
+                            </div>
+                        </div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq py-6">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Câu hỏi thường gặp</span>
+                <h2 class="section-title">Giải đáp <span class="text-gradient">thắc mắc</span> của bạn</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    MyHOU có hoàn toàn miễn phí không?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Đúng vậy! MyHOU hoàn toàn miễn phí cho tất cả sinh viên Đại học Mở Hà Nội. Chúng tôi cam kết duy trì ứng dụng miễn phí và không có quảng cáo phiền hà.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Làm thế nào để đăng nhập vào ứng dụng?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bạn chỉ cần sử dụng thông tin đăng nhập của tài khoản Đại học Mở Hà Nội - cùng tài khoản bạn sử dụng để đăng nhập vào hệ thống đào tạo của trường.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Dữ liệu của tôi có được bảo mật không?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Tuyệt đối! Chúng tôi áp dụng các biện pháp bảo mật cao nhất để bảo vệ thông tin cá nhân của bạn. Mật khẩu được mã hóa và không được lưu trữ dưới dạng văn bản thô trên máy chủ của chúng tôi.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Làm thế nào để cập nhật ứng dụng?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ứng dụng sẽ tự động thông báo khi có bản cập nhật mới. Bạn chỉ cần làm theo hướng dẫn trên màn hình hoặc cập nhật thủ công thông qua Google Play Store hoặc trang web chính thức của chúng tôi.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter py-6">
+        <div class="container">
+            <div class="newsletter-wrapper" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <h3>Đăng ký nhận thông báo</h3>
+                        <p>Nhận thông báo về các tính năng mới và cập nhật quan trọng của MyHOU</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Nhập địa chỉ email của bạn" required>
+                                <button class="btn btn-gradient" type="submit">Đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <a href="#" class="footer-logo d-flex align-items-center">
+                            <img src="images/myhou.png" alt="MyHOU Logo" height="40" class="me-2">
+                            <span class="fw-bold fs-4">MyHOU</span>
+                        </a>
+                        <p class="mt-3">Ứng dụng quản lý lịch học thông minh dành cho sinh viên Đại học Mở Hà Nội, giúp việc theo dõi lịch học và học tập hiệu quả hơn.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/kedokat0" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://github.com/kedokato-dev" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Liên kết</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#features">Tính năng</a></li>
+                        <li><a href="#screenshots">Giao diện</a></li>
+                        <li><a href="#download">Tải xuống</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Hỗ trợ</h5>
+                    <ul class="footer-links">
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Báo lỗi</a></li>
+                        <li><a href="#">Hướng dẫn sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Thông tin liên hệ</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Trường Đại học Mở Hà Nội, B101 Nguyễn Hiền, Hai Bà Trưng, Hà Nội</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>thocodeanhquan@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+84 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-md-0 text-center text-md-start">© 2023 MyHOU. Tất cả các quyền được bảo lưu.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="download-buttons text-center text-md-end">
+                            <a href="https://github.com/kedokato-dev/HouCheck/releases" class="btn btn-sm btn-outline-light me-2" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-android me-1"></i> Android
+                            </a>
+                            <a href="#" class="btn btn-sm btn-outline-light disabled">
+                                <i class="fab fa-apple me-1"></i> iOS (Sắp ra mắt)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Custom JS -->
     <script src="scripts.js"></script>
 </body>
-
 </html>
+                        
