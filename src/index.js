@@ -16,7 +16,7 @@ const { getListScore } = require('./services/listScoreService');
 const { getDetailScore } = require('./services/detailScoreService');
 const { saveFeedback } = require('./services/feedBacksService');
 const { getFeedbacksByEmail, deleteFeedbackById, updateFeedbackById } = require('./services/feedBacksService');
-const { addProduct, updateProduct, deleteProduct, getProductById } = require('./services/productService');
+const { addProduct, updateProduct, deleteProduct, getProductById, getAllProducts } = require('./services/productService');
 
 
 const app = express();
@@ -265,6 +265,12 @@ app.delete('/api/product/:id', async (req, res) => {
     console.error('Error deleting product:', error);
     res.status(500).json({ success: false, message: 'Failed to delete product', error: error.message });
   }
+});
+
+// get all products
+app.get('/api/products', async (req, res) => {
+  const result = await getAllProducts();
+  res.json(result);
 });
 
 
