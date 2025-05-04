@@ -14,6 +14,8 @@ const { getWeekSchoolSchedule } = require('./services/weekSchoolScheduleService'
 const { getExamSchedule } = require('./services/examScheduleService');
 const { getListScore } = require('./services/listScoreService');
 const { getDetailScore } = require('./services/detailScoreService');
+const { saveFeedback } = require('./services/feedBacksService');
+const { getFeedbacksByEmail, deleteFeedbackByEmail, updateFeedbackByEmail } = require('./services/feedBacksService');
 
 const app = express();
 app.use(bodyParser.json());
@@ -78,5 +80,60 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-// ✅ Xuất app ra ngoài để server.js dùng
+
+// Feedback route
+
+app.post('/api/feedback', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  const feedback = {
+      name,
+      email,
+      message,
+      createdAt: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }), 
+  };
+
+  const result = await saveFeedback(feedback);
+  if (result.success) {
+      res.status(201).json({ success: true, message: 'Feedback submitted successfully', id: result.insertedId });
+  } else {
+      res.status(500).json({ success: false, message: 'Failed to save feedback' });
+  }
+});
+
+
+app.get('/api/feedback', async (req, res) => {
+  const { email } = req.query;
+  const result = await getFeedbacksByEmail(email);
+  if (result.success) {
+      res.status(200).json({ success: true, data: result.data });
+  } else {
+      res.status(500).json({ success: false, message: 'Failed to fetch feedbacks' });
+  }
+});
+
+app.delete('/api/feedback', async (req, res) => {
+  const { email } = req.query;
+  const result = await deleteFeedbackByEmail(email);
+  if (result.success) {
+      res.status(200).json({ success: true, message: 'Feedback deleted successfully' });
+  } else {
+      res.status(500).json({ success: false, message: 'Failed to delete feedback' });
+  }
+}
+);
+
+app.put('/api/feedback', async (req, res) => {
+  const { email, newMessage } = req.body;
+  const result = await updateFeedbackByEmail(email, newMessage);
+  if (result.success) {
+      res.status(200).json({ success: true, message: 'Feedback updated successfully' });
+  } else {
+      res.status(500).json({ success: false, message: 'Failed to update feedback' });
+  }
+}
+);
+
+
+
 module.exports = app;
