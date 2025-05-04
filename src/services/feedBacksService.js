@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 require('dotenv').config();
 
 async function saveFeedback(feedback) {
@@ -37,36 +37,36 @@ async function getFeedbacksByEmail(email) {
     }
 }
 
-async function deleteFeedbackByEmail(email) {
+async function deleteFeedbackById(id) {
     const client = new MongoClient(process.env.URI);
     try {
         await client.connect();
-        const database = client.db(); 
+        const database = client.db();
         const feedbacks = database.collection('feedbacks');
 
-        
-        const result = await feedbacks.deleteMany({ email });
+        // Chuyển đổi id sang ObjectId
+        const result = await feedbacks.deleteOne({ _id: new ObjectId(id) });
         return { success: true, deletedCount: result.deletedCount };
     } catch (error) {
-        console.error('Error deleting feedback by email:', error);
+        console.error('Error deleting feedback by id:', error);
         return { success: false, message: error.message };
     } finally {
         await client.close();
     }
 }
 
-async function updateFeedbackByEmail(email, newMessage) {
+async function updateFeedbackById(id, newMessage) {
     const client = new MongoClient(process.env.URI);
     try {
         await client.connect();
-        const database = client.db(); 
+        const database = client.db();
         const feedbacks = database.collection('feedbacks');
 
-     
-        const result = await feedbacks.updateMany({ email }, { $set: newMessage });
+        // Chuyển đổi id sang ObjectId
+        const result = await feedbacks.updateOne({ _id: new ObjectId(id) }, { $set: newMessage });
         return { success: true, modifiedCount: result.modifiedCount };
     } catch (error) {
-        console.error('Error updating feedback by email:', error);
+        console.error('Error updating feedback by id:', error);
         return { success: false, message: error.message };
     } finally {
         await client.close();
@@ -75,6 +75,6 @@ async function updateFeedbackByEmail(email, newMessage) {
 module.exports = { 
     saveFeedback, 
     getFeedbacksByEmail, 
-    deleteFeedbackByEmail, 
-    updateFeedbackByEmail 
+    deleteFeedbackById, 
+    updateFeedbackById 
 };

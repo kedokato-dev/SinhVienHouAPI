@@ -15,7 +15,7 @@ const { getExamSchedule } = require('./services/examScheduleService');
 const { getListScore } = require('./services/listScoreService');
 const { getDetailScore } = require('./services/detailScoreService');
 const { saveFeedback } = require('./services/feedBacksService');
-const { getFeedbacksByEmail, deleteFeedbackByEmail, updateFeedbackByEmail } = require('./services/feedBacksService');
+const { getFeedbacksByEmail, deleteFeedbackById, updateFeedbackById} = require('./services/feedBacksService');
 
 const app = express();
 app.use(bodyParser.json());
@@ -113,26 +113,46 @@ app.get('/api/feedback', async (req, res) => {
 });
 
 app.delete('/api/feedback', async (req, res) => {
-  const { email } = req.query;
-  const result = await deleteFeedbackByEmail(email);
-  if (result.success) {
+  const { id } = req.query;
+
+  // if (!id) {
+  //   return res.status(400).json({ success: false, message: 'Feedback ID is required' });
+  // }
+
+  try {
+    const result = await deleteFeedbackById(id);
+
+    if (result.deletedCount > 0) {
       res.status(200).json({ success: true, message: 'Feedback deleted successfully' });
-  } else {
-      res.status(500).json({ success: false, message: 'Failed to delete feedback' });
+    } else {
+      res.status(404).json({ success: false, message: 'Feedback not found' });
+    }
+  } catch (error) {
+    console.error('Error deleting feedback:', error);
+    res.status(500).json({ success: false, message: 'Failed to delete feedback', error: error.message });
   }
-}
-);
+});
 
 app.put('/api/feedback', async (req, res) => {
-  const { email, newMessage } = req.body;
-  const result = await updateFeedbackByEmail(email, newMessage);
-  if (result.success) {
-      res.status(200).json({ success: true, message: 'Feedback updated successfully' });
-  } else {
-      res.status(500).json({ success: false, message: 'Failed to update feedback' });
+  const { id, newMessage } = req.body;
+
+  if (!id || !newMessage) {
+    return res.status(400).json({ success: false, message: 'Feedback ID and new message are required' });
   }
-}
-);
+
+  try {
+    const result = await updateFeedbackById(id, { message: newMessage });
+
+    if (result.modifiedCount > 0) {
+      res.status(200).json({ success: true, message: 'Feedback updated successfully' });
+    } else {
+      res.status(404).json({ success: false, message: 'Feedback not found or no changes made' });
+    }
+  } catch (error) {
+    console.error('Error updating feedback:', error);
+    res.status(500).json({ success: false, message: 'Failed to update feedback', error: error.message });
+  }
+});
 
 
 
