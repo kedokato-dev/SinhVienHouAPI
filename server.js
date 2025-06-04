@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 
 const pingServer = () => {
-    const serverUrl = `https://myhou.io.vn/`;
+    const serverUrl = `https://sinhvienhouapi.onrender.com/`;
     setInterval(async () => {
       try {
         const response = await axios.get(serverUrl);
